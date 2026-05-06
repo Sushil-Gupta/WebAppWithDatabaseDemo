@@ -1,7 +1,7 @@
 trigger: 'none' # will disable CI builds entirely
-# - master
+# - main
 pr: none
-# - master
+# - main
 # - releases/*
 
 jobs:
