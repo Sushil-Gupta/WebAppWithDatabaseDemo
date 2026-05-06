@@ -1,7 +1,7 @@
 trigger: 'none' # will disable CI builds entirely
 
 pool:
-  vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
     
 variables:
   BuildConfiguration: release
@@ -18,8 +18,10 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Restore Nuget Packages
   inputs:
-    command: restore
+    azureSubscription: 'ado-contosso-subsc'
+    command: 'restore'
     projects: '**/WebApp.csproj'
+    feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
   displayName: Build Web App
