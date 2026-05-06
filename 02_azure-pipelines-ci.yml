@@ -48,8 +48,8 @@ jobs:
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
       SonarCloud: SonarCloud
-      organization: houssemdellai
-      projectKey: WebAppWithDatabaseDemo
+      organization: Sushil-Gupta
+      projectKey: sushil-gupta-sonarkey
   
   - task: DotNetCoreCLI@2
     displayName: Build
@@ -86,7 +86,7 @@ jobs:
 - job: Database
   displayName: 'Build Database'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - task: MSBuild@1
@@ -103,7 +103,7 @@ jobs:
 - job: Selenium
   displayName: 'Build UI Tests'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - task: NuGetToolInstaller@0
