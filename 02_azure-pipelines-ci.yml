@@ -99,7 +99,7 @@ jobs:
     displayName: 'Build solution WebApp.Database.sqlproj'
     inputs:
       solution: WebApp.Database/WebApp.Database.sqlproj
-      msbuildArguments: '/p:OutDir=$(Build.ArtifactStagingDirectory)'
+      msbuildArguments: '/p:OutDir=$(Build.ArtifactStagingDirectory) /p:TargetFrameworkVersion=v4.7.2'
   
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact (Dacpac)'
