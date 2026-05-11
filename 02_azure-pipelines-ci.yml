@@ -49,11 +49,12 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
   
-  - task: SonarCloudPrepare@2
+  - task: SonarQubePrepare@7
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
-      SonarCloud: SonarCloud
+      SonarQube: SonarCloud
       organization: Sushil-Gupta
+      scannerMode: dotnet
       projectKey: Sushil-Gupta_WebAppWithDatabaseDemo
   
   - task: DotNetCoreCLI@2
@@ -77,10 +78,10 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
   
-  - task: SonarCloudAnalyze@2
+  - task: SonarQubeAnalyze@7
     displayName: 'Run Code Analysis'
   
-  - task: SonarCloudPublish@2
+  - task: SonarQubePublish@7
     displayName: 'Publish Quality Gate Result'
   
   - task: PublishBuildArtifacts@1
