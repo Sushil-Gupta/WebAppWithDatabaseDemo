@@ -52,8 +52,9 @@ jobs:
   - task: SonarCloudPrepare@4
     displayName: 'Prepare analysis on SonarCloud'
     inputs:
-      SonarCloud: SonarCloud
+      SonarQube: SonarCloud
       organization: Sushil-Gupta
+      scannerMode: dotnet
       scannerMode: dotnet
       projectKey: Sushil-Gupta_WebAppWithDatabaseDemo
   
